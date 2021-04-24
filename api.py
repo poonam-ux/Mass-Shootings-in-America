@@ -8,5 +8,13 @@ app = Flask(__name__)
 def map_view():
     return render_template('MapView.html')
 
+@app.route('/chart')
+def chart_view():
+    return render_template('ChartView.html')
+
+@app.route('/table')
+def table_view():
+    return render_template('TableView.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
