@@ -1,0 +1,14 @@
+.header-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #e8e8e8;
+}
+
+.main-content {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.show-data {
+    padding-top: 20px;
+}
