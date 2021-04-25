@@ -32,6 +32,8 @@ For this project I chose to analyze and visualize mass shootings in America over
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20table%20view-%20small.png)
 
-![]()
+Dashboard: Chart View
+
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20chart%20view_small.png)
 
 ![]()
