@@ -40,4 +40,7 @@ Analysis: Age Group
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/age%20group%20analysis-%20small.png)
 
-![]()
+Analysis: Shooter Race
+
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20race-small.png)
+
