@@ -32,18 +32,22 @@ For this project I chose to analyze and visualize mass shootings in America over
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20table%20view-%20small.png)
 
-Dashboard: Chart View
+* Dashboard: Chart View
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20chart%20view_small.png)
 
-Analysis: Age Group
+* Analysis: Age Group
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/age%20group%20analysis-%20small.png)
 
-Analysis: Shooter Race
+* Analysis: Shooter Race
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20race-small.png)
 
-Next Iteration: 
+* Next Iteration: 
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/next%20iteration%20small.png)
+
+* Analysis: Weapon Type
+
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20weapon%20type-%20small.png)
