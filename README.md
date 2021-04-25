@@ -44,3 +44,6 @@ Analysis: Shooter Race
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20race-small.png)
 
+Next Iteration: 
+
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/next%20iteration%20small.png)
