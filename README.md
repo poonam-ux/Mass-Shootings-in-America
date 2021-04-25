@@ -24,11 +24,13 @@ For this project I chose to analyze and visualize mass shootings in America over
 5. Your project must include some level of user-driven interaction (e.g. menus, dropdowns, textboxes).
 6. Your final visualization should ideally include at least three views.
 
-Dashboard:
+* Dashboard: Map View
 
-![]()
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20map%20view-%20small.png)
 
-![]()
+* Dashboard: Table View
+
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20table%20view-%20small.png)
 
 ![]()
 
