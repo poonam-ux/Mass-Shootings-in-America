@@ -138,7 +138,9 @@ function unpack(rows, key) {
 }
 
 function plotMap(stateCountMap) {
-    console.log(stateCountMap);
+    plotlyMap(stateCountMap)
+}
+const plotlyMap = (stateCountMap) =>{
     d3.csv('/data/states_lat_long.csv', function (err, rows) {
         console.log(unpack(rows, 'name'));
         var stateName = unpack(rows, 'name'),
@@ -196,3 +198,162 @@ function plotMap(stateCountMap) {
     });
 
 }
+
+const leafletMap = ()=> {// Leaflet map
+// Initialize & Create Separate LayerGroups: earthquakes & tectonicPlates
+var other = new L.LayerGroup();
+var workplace = new L.LayerGroup();
+var school = new L.LayerGroup();
+var military = new L.LayerGroup();
+var religious = new L.LayerGroup();
+var airport = new L.LayerGroup();
+
+// // Earthquakes & Tectonic Plates GeoJSON URL Variables
+var earthquakesURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+var platesURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
+console.log(earthquakesURL)
+// Define Variables for Tile Layers
+// var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+//     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+//     maxZoom: 18,
+//     id: "mapbox.satellite",
+//     accessToken: API_KEY
+// });
+
+var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+	attribution: "Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='https://www.mapbox.com/'>Mapbox</a>",
+	maxZoom: 18,
+	id: "mapbox.streets",
+	accessToken: API_KEY
+});
+
+// var grayscaleMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+//     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+//     maxZoom: 18,
+//     id: "mapbox.light",
+//     accessToken: API_KEY
+// });
+
+// var outdoorsMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+//     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+//     maxZoom: 18,
+//     id: "mapbox.outdoors",
+//     accessToken: API_KEY
+// });
+
+// Define baseMaps Object to Hold Base Layers
+var baseMaps = {
+    "Light": lightmap,
+    // "Grayscale": grayscaleMap,
+    // "Outdoors": outdoorsMap
+};
+
+// Create Overlay Object to Hold Overlay Layers
+var overlayMaps = {
+    "Other": other,
+    "Workplace": workplace,
+    "School": school,
+    "Military": military,
+    "Religious": religious,
+    "Airport": airport
+};
+
+// Create Map, Passing In satelliteMap & earthquakes as Default Layers to Display on Load
+var myMap = L.map("map", {
+    center: [37.09, -95.71],
+    zoom: 2,
+    layers: [lightmap, other, workplace, school, military, religious, airport]
+});
+
+// Create a Layer Control + Pass in baseMaps and overlayMaps + Add the Layer Control to the Map
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+
+// Retrieve earthquakesURL (USGS Earthquakes GeoJSON Data) with D3
+d3.json(("us_shootings.json").then(function(incidentData) {
+    // Function to Determine Size of Marker Based on the Magnitude of the Earthquake
+    function markerSize() {
+        if (incident === 0) {
+          return 1;
+        }
+        return incident * 3;
+    }
+
+    // Function to Determine Style of Marker Based on the Magnitude of the Earthquake
+    function styleInfo(incident) {
+        return {
+          opacity: 1,
+          fillOpacity: 1,
+          fillColor: chooseColor(Total_Victims),
+          color: "#000000",
+          radius: markerSize(Total_Victims),
+          stroke: true,
+          weight: 0.5
+        };
+    }
+
+    // Function to Determine Color of Marker Based on the Magnitude of the Earthquake
+    function chooseColor(fatalities) {
+		if (fatalities > 150) {
+			return "#ea2c2c";
+		}
+		if (fatalities > 100) {
+			return "#ea822c";
+		}
+		if (fatalities > 70) {
+			return "#ee9c00";
+		}
+		if (fatalities > 40) {
+			return "#eecc00";
+		}
+		if (fatalities > 20) {
+			return "#d4ee00";
+		}
+		return "#daf7a6";
+    }
+
+    // Create a GeoJSON Layer Containing the Features Array on the earthquakeData Object
+    L.geoJSON(incidentData, {
+        pointToLayer: function(incident, Latitude, Longitude) {
+            return L.circleMarker(Latitude, Longitude);
+        },
+        style: styleInfo,
+        // Function to Run Once For Each feature in the features Array
+        // Give Each feature a Popup Describing the Place & Time of the Earthquake
+        onEachFeature: function(incident, layer) {
+            layer.bindPopup("<h4>Incident: " + incident.Name_of_Incident);
+            // "</h4><hr><p>Date & Time: " + new Date(feature.properties.time) + 
+            // "</p><hr><p>Magnitude: " + feature.properties.mag + "</p>");
+        }
+    // Add earthquakeData to earthquakes LayerGroups 
+    }).addTo(other);
+    // Add earthquakes Layer to the Map
+    other.addTo(myMap);
+
+    // Retrieve platesURL (Tectonic Plates GeoJSON Data) with D3
+    // d3.json(platesURL, function(plateData) {
+    //     // Create a GeoJSON Layer the plateData
+    //     L.geoJson(plateData, {
+    //         color: "#DC143C",
+    //         weight: 2
+    //         // Add plateData to tectonicPlates LayerGroups
+    //         }).addTo(tectonicPlates);
+    //         // Add tectonicPlates Layer to the Map
+    //         tectonicPlates.addTo(myMap);
+    //         });
+
+    // Set Up Legend
+    var legend = L.control({ position: "bottomright" });
+    legend.onAdd = function() {
+        var div = L.DomUtil.create("div", "info legend"),
+        levels = [0, 1, 2, 3, 4, 5];
+        div.innerHTML += "<h3>US Shootings</h3>"
+
+        for (var i = 0; i < magnitudeLevels.length; i++) {
+            div.innerHTML +=
+            '<i style="background: ' + chooseColor(levels[i] + 1) + '"></i> ' +
+            levels[i] + (levels[i + 1] ? '&ndash;' + levels[i + 1] + '<br>' : '+');
+        }
+        return div;
+    };
+    // Add Legend to the Map
+    legend.addTo(myMap);}))}
