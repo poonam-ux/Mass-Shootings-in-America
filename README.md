@@ -44,10 +44,10 @@ For this project I chose to analyze and visualize mass shootings in America over
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20race-small.png)
 
-* Next Iteration: 
+<!-- * Next Iteration: 
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/next%20iteration%20small.png)
-
+ -->
 * Analysis: Weapon Type
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20weapon%20type-%20small.png)
