@@ -24,15 +24,23 @@ For this project I chose to analyze and visualize mass shootings in America over
 5. Your project must include some level of user-driven interaction (e.g. menus, dropdowns, textboxes).
 6. Your final visualization should ideally include at least three views.
 
-* Interactive Dashboard: Map View
+* Interactive Dashboard: Map View - 
+   * user can choose Shooter's Age and/or Race
+   * user can hover over the bubbles to get more information
+   * user can navigate to Chart View or Table View page
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20map%20view-%20small.png)
 
-* Interactive Dashboard: Table View
+* Interactive Dashboard: Table View - 
+   * user can choose Shooter's Age and/or Race
+   * user can sort, filter, order, and select the incidents to get desired results
+   * user can navigate to Map View or Chart View page
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20table%20view-%20small.png)
 
 * Interactive Dashboard: Chart View
+   * user can choose Shooter's Age, Race or Location Type
+   * user can navigate to Map View or Table View page
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20chart%20view_small.png)
 
