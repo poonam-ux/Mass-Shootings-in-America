@@ -56,6 +56,6 @@ For this project I chose to analyze and visualize mass shootings in America over
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20analysis-%20victims%20over%20years-%20small.png)
 
-* Analysis: Google Maps heat layer
+* Analysis: Incident Occurrences - Google Maps heat layer
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incidents'%20google%20map-%20small.png)
