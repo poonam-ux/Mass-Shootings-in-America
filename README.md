@@ -42,7 +42,7 @@ The second map, choropleth map animates to display the incidents in each state (
    * Bar chart and Pie chart update when user chooses from Shooter's Age, Race or Location Type
    * User can navigate to Home page, Map View or Table View pages
 
-![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20chart%20view_small.png)
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/MSA_bar_pie_charts.png)
 
 ### Interactive Dashboard: Table View
 
