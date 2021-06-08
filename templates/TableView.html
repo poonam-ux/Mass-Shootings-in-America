@@ -5,77 +5,99 @@
     <meta charset="UTF-8">
     <title>Gun Violence Dashboard</title>
     <link href="../static/css/style.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <script src='//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js'></script>
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-
 </head>
 
 <body>
     <div class="header-container">
         <div class="container">
-
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>
-                        Mass Shootings in America
-                    </h3>
-                </div>
-                <div class="col-md-6">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link " href="/">Map View</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="/chart">Chart View</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/table">Table View</a>
-                        </li>
-                    </ul>
-                </div>
+          <div class="row">
+            <div class="col-md-6">
+              <h2>
+              Mass Shootings in America
+              </h2>
             </div>
+            <div class="col-md-6">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link " href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/">Map View</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/chart">Chart View</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/table">Table View</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+      <div class="container main-content table-select">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"><h4>Shooter's Age</h4></label>
+                        <select class="form-control" id="ageSelect">
+                            <option value="ALL" selected>Show All</option>
+                            <option>0-12</option>
+                            <option>Teens</option>
+                            <option>20s</option>
+                            <option>30s</option>
+                            <option>40s</option>
+                            <option>50s</option>
+                            <option>60s</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2"><h4>Shooter's Race</h4></label>
+                        <select class="form-control" id="raceSelect">
+                            <option value="ALL" selected>Show All</option>
+                            <option>White</option>
+                            <option>Black</option>
+                            <option>Asian</option>
+                            <option>Latino</option>
+                            <option>Native American</option>
+                            <option>Unclear</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-    <div class="container main-content">
-        <form class="radio-btns">
-
-            <div class="form-check form-check-inline ">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" checked
-                    value="age">
-                <label class="form-check-label" for="inlineRadio1">Shooter's Age</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="race">
-                <label class="form-check-label" for="inlineRadio2">Shooter's Race</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="locationType">
-                <label class="form-check-label" for="inlineRadio3">Location Type</label>
-            </div>
         </form>
+        <br>
         <div class = 'container-fluid card' >
             <article>
-                <h4 class = 'text-primary'>
-                America's Gun Violence
-                </h4>
-      
-                <p style = 'color:darkslateblue'>The breakdown of the number of incidents for the above selected category </p>
+                <p style = 'color:darkslateblue'>The table displays the incident details. User can sort, filter, order, and select the incidents to display desired results.</p>
               </article>
           </div>
         <div class="show-data">
-            <div id='result-div'>
-                <!-- Plotly chart will be drawn inside this DIV -->
-            </div>
+            <table id="table-view" class="display" width="100%"></table>
         </div>
     </div>
+    <!-- Footer-->
+    <div id="footer">
+      <p>Poonam Tashildar &copy;2021</p>
+    </div>
 </body>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
 <script src='../static/js/main.js'></script>
 <script>
-    queryAll();
+    querySelectedTable('ageSelect', 'ALL');
 </script>
-
 </html>

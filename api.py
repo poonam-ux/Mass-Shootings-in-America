@@ -5,6 +5,10 @@ import json
 app = Flask(__name__)
 
 @app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/map')
 def map_view():
     return render_template('MapView.html')
 
@@ -55,3 +59,4 @@ def query_all_post():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
