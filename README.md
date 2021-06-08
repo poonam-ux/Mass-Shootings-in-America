@@ -13,14 +13,14 @@ For this project I chose to analyze and visualize mass shootings in America over
 
 ### Interactive Dashboard: Landing Page
 
-This page allows the user to understand what this project is about. User can choose from shooter's Age and/or Race to plot the incidents on the map (bubble map). 
-   * User can choose Shooter's Age and/or Race
+This page helps user understand the analysis and visualization of the incidents since 1982. 
+   * User can choose from shooter's Age and/or Race to plot the incidents on the map (bubble map). 
    * User can hover over the bubbles to get more information
    * User can navigate to Map View, Chart View and Table View pages
 
 The second map, choropleth map animates to display the incidents in each state (if any) from 1982 to 2021. 
 
-![]()
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/MSA_landing_page.png)
 
 ### Interactive Dashboard: Map View
 
@@ -29,7 +29,13 @@ The second map, choropleth map animates to display the incidents in each state (
    * Popups display the incident and/or shooter details 
    * User can navigate to Home page, Chart View and Table View pages
 
-![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20map%20view-%20small.png)
+#### Incident Details:
+
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/MSA_map_incident_detail_small.png)
+
+#### Shooter Details:
+
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/MSA_map_shooter_details_small.png)
 
 ### Interactive Dashboard: Chart View
 
@@ -44,7 +50,7 @@ The second map, choropleth map animates to display the incidents in each state (
    * User can sort, filter, order, and select the incidents to get desired results
    * User can navigate to Home page, Map View or Chart View pages
 
-![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/dashboard-%20table%20view-%20small.png)
+![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/MSA_table_view_small.png)
 
 ### Analysis: 
 
