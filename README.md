@@ -58,9 +58,9 @@ The second map, choropleth map animates to display the incidents in each state (
 
 ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/age%20group%20analysis-%20small.png)
 
-* Shooter Race Analysis
+<!-- * Shooter Race Analysis -->
 
-![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20race-small.png)
+<!-- ![](https://github.com/poonam-ux/Mass_Shootings_in_America/blob/main/images/incident%20breakdown-%20race-small.png) -->
 
 * Weapon Type Analysis
 
